@@ -74,9 +74,10 @@ module Blacklight::Folders
 
       if @folder.save
         message = doc_ids.size == 1 ? t(:'helpers.submit.folder.added_one', folder_name: @folder.name) : t(:'helpers.submit.folder.added_many', folder_name: @folder.name)
-        redirect_to :back, notice: message
+
+        redirect_back fallback_location: main_app.root_path, notice: message
       else
-        redirect_to :back, alert: 'Unable to save bookmarks.'
+        redirect_back fallback_location: main_app.root_path, alert: 'Unable to save bookmarks.'
       end
     end
 
@@ -84,7 +85,8 @@ module Blacklight::Folders
       item_ids = Array(params['item_ids'].split(',').map(&:to_i))
       items = @folder.items.select {|x| item_ids.include?(x.id)}
       @folder.remove_bookmarks(items)
-      redirect_to :back
+
+      redirect_back fallback_location: main_app.root_path
     end
 
     protected
