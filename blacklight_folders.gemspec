@@ -19,8 +19,8 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", ">= 4.0.1", "< 7"
   s.add_dependency "acts_as_list", ">= 0.4.0"
   s.add_dependency "blacklight", ">= 5.16.4", "< 8"
-  s.add_dependency "cancancan", "~> 1.9"
-  s.add_dependency 'select2-rails', '~> 3.5.9.1'
+  s.add_dependency "cancancan", "~> 3.2"
+  s.add_dependency 'select2-rails', '~> 4.0'
 
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "jettywrapper"
